@@ -1,0 +1,180 @@
+/* 
+ * Revvy AI Companion - System Status Bar Styles
+ */
+
+.system-status-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 0 0 0 5px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  max-height: 30px;
+  width: auto;
+  color: #fff;
+}
+
+.system-status-bar.expanded {
+  max-height: 300px;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.status-bar-content {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  cursor: pointer;
+  height: 30px;
+}
+
+.status-indicators {
+  display: flex;
+  align-items: center;
+}
+
+.status-indicator {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.status-indicator.active {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.status-indicator.warning {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+.status-indicator.error {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.status-summary {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.status-error {
+  color: #f44336;
+  font-weight: bold;
+}
+
+.status-warning {
+  color: #ff9800;
+}
+
+.status-details {
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.status-details h3 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.status-detail-item {
+  margin-bottom: 8px;
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.status-label {
+  width: 120px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.status-value {
+  font-weight: 500;
+}
+
+.status-value.ok {
+  color: #4caf50;
+}
+
+.status-value.warning {
+  color: #ff9800;
+}
+
+.status-value.error {
+  color: #f44336;
+}
+
+.status-note {
+  width: 100%;
+  margin-top: 2px;
+  margin-left: 120px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+.status-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.retry-button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.retry-button:hover {
+  background-color: #0d8bf2;
+}
+
+.retry-button.retrying {
+  background-color: #777;
+  cursor: not-allowed;
+}
+
+.icon-server, .icon-car, .icon-location, .icon-microphone, .icon-brain {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon-server {
+  background-image: url('/icons/server.svg');
+}
+
+.icon-car {
+  background-image: url('/icons/car.svg');
+}
+
+.icon-location {
+  background-image: url('/icons/location.svg');
+}
+
+.icon-microphone {
+  background-image: url('/icons/microphone.svg');
+}
+
+.icon-brain {
+  background-image: url('/icons/brain.svg');
+}
