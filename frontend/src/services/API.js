@@ -420,8 +420,231 @@ class API {
       throw error;
     }
   }
+  
+  /**
+   * Get list of available personalities
+   */
+  async getPersonalities() {
+    try {
+      const response = await fetch(`${this.baseUrl}/personalities`);
+      return await response.json();
+    } catch (error) {
+      console.error('Error getting personalities:', error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Change AI personality
+   */
+  async changePersonality(personality) {
+    try {
+      const response = await fetch(`${this.baseUrl}/personality`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ personality })
+      });
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Error changing personality:', error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Get GPS location data
+   */
+  async getLocation() {
+    try {
+      const response = await fetch(`${this.baseUrl}/gps/location`);
+      return await response.json();
+    } catch (error) {
+      console.error('Error getting location data:', error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Get voice settings
+   */
+  async getVoiceSettings() {
+    try {
+      const response = await fetch(`${this.baseUrl}/voice/settings`);
+      return await response.json();
+    } catch (error) {
+      console.error('Error getting voice settings:', error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Update voice settings
+   */
+  async updateVoiceSettings(settings) {
+    try {
+      const response = await fetch(`${this.baseUrl}/voice/settings`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(settings)
+      });
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Error updating voice settings:', error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Get system logs
+   */
+  async getLogs(level = 'info', limit = 100) {
+    try {
+      const response = await fetch(`${this.baseUrl}/system/logs?level=${level}&limit=${limit}`);
+      return await response.json();
+    } catch (error) {
+      console.error('Error getting system logs:', error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Restart system
+   */
+  async restartSystem() {
+    try {
+      const response = await fetch(`${this.baseUrl}/system/restart`, {
+        method: 'POST'
+      });
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Error restarting system:', error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Shutdown system
+   */
+  async shutdownSystem() {
+    try {
+      const response = await fetch(`${this.baseUrl}/system/shutdown`, {
+        method: 'POST'
+      });
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Error shutting down system:', error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Get system configuration
+   */
+  async getSystemConfig() {
+    try {
+      const response = await fetch(`${this.baseUrl}/system/config`);
+      return await response.json();
+    } catch (error) {
+      console.error('Error getting system config:', error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Update system configuration
+   */
+  async updateSystemConfig(config) {
+    try {
+      const response = await fetch(`${this.baseUrl}/system/config`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(config)
+      });
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Error updating system config:', error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Get trip history
+   */
+  async getTripHistory(limit = 10) {
+    try {
+      const response = await fetch(`${this.baseUrl}/trips?limit=${limit}`);
+      return await response.json();
+    } catch (error) {
+      console.error('Error getting trip history:', error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Get detailed trip data
+   */
+  async getTripDetails(tripId) {
+    try {
+      const response = await fetch(`${this.baseUrl}/trips/${tripId}`);
+      return await response.json();
+    } catch (error) {
+      console.error(`Error getting details for trip ${tripId}:`, error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Get maintenance information
+   */
+  async getMaintenanceInfo() {
+    try {
+      const response = await fetch(`${this.baseUrl}/maintenance`);
+      return await response.json();
+    } catch (error) {
+      console.error('Error getting maintenance info:', error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Update maintenance item
+   */
+  async updateMaintenanceItem(itemId, status) {
+    try {
+      const response = await fetch(`${this.baseUrl}/maintenance/${itemId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ status })
+      });
+      
+      return await response.json();
+    } catch (error) {
+      console.error(`Error updating maintenance item ${itemId}:`, error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Is connected to backend?
+   */
+  isConnected() {
+    return this.connected;
+  }
 }
 
-// Create singleton instance
-const instance = new API();
-export default instance;
+// Create and export a singleton instance
+const api = new API();
+export default api;
