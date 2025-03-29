@@ -1,0 +1,136 @@
+{
+  "system": {
+    "name": "Revvy AI Companion",
+    "version": "1.0.0",
+    "debug_mode": false,
+    "auto_boot": true,
+    "auto_shutdown": true
+  },
+  "network": {
+    "api_port": 5000,
+    "api_host": "0.0.0.0",
+    "ws_port": 5001,
+    "enable_bluetooth": true,
+    "enable_wifi": true
+  },
+  "obd": {
+    "port": "/dev/rfcomm0",
+    "baudrate": 38400,
+    "timeout": 30,
+    "reconnect_attempts": 5,
+    "polling_interval": 1.0,
+    "dtc_check_interval": 300
+  },
+  "voice": {
+    "wake_word": "hey revvy",
+    "wake_word_sensitivity": 0.7,
+    "volume": 80,
+    "enable_voice": true,
+    "mic_index": 0,
+    "speaker_device": "default"
+  },
+  "ai": {
+    "model_path": "./ai/models/mistral-7b-instruct-q4_k_m.gguf",
+    "max_tokens": 256,
+    "temperature": 0.7,
+    "contextual_memory": true,
+    "memory_limit": 10
+  },
+  "gps": {
+    "port": "/dev/ttyAMA0",
+    "baudrate": 9600,
+    "update_interval": 1.0,
+    "default_latitude": 37.7749,
+    "default_longitude": -122.4194
+  },
+  "display": {
+    "unit_system": "metric",
+    "temperature_unit": "celsius",
+    "pressure_unit": "kpa",
+    "distance_unit": "km",
+    "speed_unit": "kph"
+  },
+  "modes": {
+    "default_mode": "Standard",
+    "age_restricted_modes": ["Unhinged"],
+    "rotation_interval": "daily"
+  },
+  "personalities": {
+    "revvy_og_voice_id": "default",
+    "revvy_og_speaking_rate": 1.0,
+    "revvy_og_speaking_pitch": 1.0,
+    
+    "turbo_revvy_voice_id": "energetic",
+    "turbo_revvy_speaking_rate": 1.2,
+    "turbo_revvy_speaking_pitch": 1.1,
+    
+    "kiko_voice_id": "gentle",
+    "kiko_speaking_rate": 1.0,
+    "kiko_speaking_pitch": 1.2,
+    
+    "mechanix_voice_id": "technical",
+    "mechanix_speaking_rate": 0.95,
+    "mechanix_speaking_pitch": 0.9,
+    
+    "sage_voice_id": "calm",
+    "sage_speaking_rate": 0.9,
+    "sage_speaking_pitch": 1.0,
+    
+    "shinji_revvy_voice_id": "street",
+    "shinji_revvy_speaking_rate": 1.1,
+    "shinji_revvy_speaking_pitch": 1.05,
+    
+    "kaizen_revvy_voice_id": "dramatic",
+    "kaizen_revvy_speaking_rate": 1.1,
+    "kaizen_revvy_speaking_pitch": 1.05,
+    
+    "revvy_toretto_voice_id": "deep",
+    "revvy_toretto_speaking_rate": 0.92,
+    "revvy_toretto_speaking_pitch": 0.85,
+    
+    "gizmo_gremlin_voice_id": "mischievous",
+    "gizmo_gremlin_speaking_rate": 1.2,
+    "gizmo_gremlin_speaking_pitch": 1.15,
+    
+    "safety_revvy_voice_id": "authoritative",
+    "safety_revvy_speaking_rate": 0.95,
+    "safety_revvy_speaking_pitch": 1.0
+  },
+  "achievements": {
+    "enabled": true,
+    "sync_to_cloud": true
+  },
+  "logging": {
+    "level": "info",
+    "file_path": "./logs/revvy.log",
+    "max_size_mb": 10,
+    "backup_count": 5,
+    "console_output": true
+  },
+  "maintenance": {
+    "enable_reminders": true,
+    "oil_change_interval_miles": 5000,
+    "tire_rotation_interval_miles": 6000,
+    "air_filter_interval_miles": 15000
+  },
+  "notifications": {
+    "enable_push": true,
+    "enable_sound": true,
+    "priority_only_at_night": true,
+    "night_mode_start": "22:00",
+    "night_mode_end": "07:00"
+  },
+  "updates": {
+    "check_automatically": true,
+    "update_interval_days": 7,
+    "last_update_check": "2025-03-28 00:00:00"
+  },
+  "user": {
+    "name": "TheRealRevvy",
+    "preferences": {
+      "favorite_mode": "Standard",
+      "show_advanced_metrics": true,
+      "dashboard_theme": "auto"
+    }
+  }
+}
